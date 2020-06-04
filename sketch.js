@@ -51,7 +51,7 @@ function resetPoints() {
 	Drag.selected = null;
 	for(let i = 0; i < sld.value; i++) {
 		let a = 2*PI*i/sld.value;
-		points.push(new DragCircle(createVector(width/4 * sin(a), width/4 * cos(a)), 3, color(86, 210, 227), reDrawPoints))
+		points.push(new DragCircle(createVector(width/6 * sin(a), width/6 * cos(a)), 3, color(86, 210, 227), reDrawPoints))
 	}
 
 	reDrawPoints();
