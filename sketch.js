@@ -1,8 +1,8 @@
-let sld, hideBtn, stopBtn;
+let sld, alphaSld, speedSld;
+let hideBtn, stopBtn, resetBtn;
 let points;
 let startPt;
 let lastDrawn;
-let iterations = 250;
 
 function setup() {
 	createCanvas(windowWidth, windowHeight+5);
@@ -10,8 +10,11 @@ function setup() {
 
 	// Create UI elements
 	sld = new Slider(start=3, end=24, value=3, 0, 0, width/12, height/60, 1, "Points", true, 0, resetPoints);
+	alphaSld = new Slider(start=1, end=255, value=30, 0,0, width/12, height/60, null, "Alpha", false);
+	speedSld = new Slider(start=1, end=500, 250, 0,0, width/12, height/60, 1, "Speed", false)
 	hideBtn = new ToggleButton(0,0, width/12, height/30, "Hide pts", reDrawPoints);
 	stopBtn = new ToggleButton(0,0, width/12, height/30, "Stop");
+	resetBtn = new Button(0,0, width/12, height/30, "Reset", reDrawPoints);
 
 	startPt = new DragCircle(createVector(0,0), 3, color(227, 103, 86), reDrawPoints)
 
@@ -27,7 +30,7 @@ function draw() {
 	// Draw UI and draggable elements
 	fill(32);
 	noStroke();
-	rect(sld.x, sld.y, sld.width, sld.height);
+	rect(sld.x - 10, sld.y, sld.width + 20, (sld.height + UI.heightMargin)*3 + 20);
 	UI.update();
 	UI.draw();
 
@@ -36,9 +39,9 @@ function draw() {
 	if(!hideBtn.active) Drag.draw();
 
 	if(!stopBtn.active){
-		stroke(230, 100);
+		stroke(230, alphaSld.value);
 		strokeWeight(1);
-		for(let i = 0; i < iterations*sld.value; i++) {
+		for(let i = 0; i < speedSld.value*sld.value; i++) {
 			lastDrawn = p5.Vector.add(lastDrawn, random(points).pos).div(2);
 			point(lastDrawn.x, lastDrawn.y);
 		}
