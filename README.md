@@ -8,10 +8,16 @@ This proyect is hosted by github pages at <a href="https://pabloqb2000.github.io
   - The blue point are are points of the polygon
 #### Number of points
 Number of points in the polygon
+#### Alpha
+Alpha channel of each drawn point
+#### Speed
+Speed at wich the triangle is drawn
 #### Hide pts
 Whether to hide the draggable points
 #### Stop
 Whether to stop or resume the algorithm
+#### Reset
+Reset the drawing
 ## Screenshot
 <img src="imgs/screenshot01.png"></img>
 ## References
