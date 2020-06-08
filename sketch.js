@@ -5,7 +5,7 @@ let startPt;
 let lastDrawn;
 
 function setup() {
-	textFont("Sarpanch");
+	textFont("Orbitron");
 	createCanvas(windowWidth, windowHeight+5);
 	background(32);
 
